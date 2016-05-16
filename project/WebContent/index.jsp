@@ -8,8 +8,5 @@
 </head>
 <body>
 	<h1>Web Services</h1>
-	<h2>Test Tim Web Test</h2>
-	<h3>Test</h3>
-	<h1>Test test</h1>
 </body>
 </html>
