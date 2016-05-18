@@ -38,7 +38,7 @@ public class PollDao {
 	}
 
 	/**
-	 * convert XML file into java objects
+	 * convert XML file into java objects using unmarshall
 	 * 
 	 * @return
 	 */
@@ -62,7 +62,7 @@ public class PollDao {
 	}
 
 	/**
-	 * convert java objects into XML file
+	 * convert java objects into XML file using marshall
 	 * 
 	 * @param polls
 	 */
