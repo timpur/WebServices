@@ -1,4 +1,4 @@
-package restservice;
+package rests;
 
 import dao.PollDao;
 

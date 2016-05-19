@@ -20,13 +20,7 @@ public class UserDao {
 	}
 	
 	
-	public static User login(String username, String password){
-		return null;
-	}
-
-	public static User signup(String username, String password){
-		return null;
-	}
+	
 
 	
 
@@ -35,15 +29,15 @@ public class UserDao {
 	 * 
 	 * @return
 	 */
-	public static Users load() {
+	public static UsersController load() {
 
-		Users users = null;
+		UsersController users = null;
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Users.class);
+			jc = JAXBContext.newInstance(UsersController.class);
 			Unmarshaller u = jc.createUnmarshaller();
 			FileInputStream fin = new FileInputStream(FILEPATH);
-			users = (Users) u.unmarshal(fin);
+			users = (UsersController) u.unmarshal(fin);
 			fin.close();
 			return users;
 		} catch (JAXBException e) {
@@ -59,10 +53,10 @@ public class UserDao {
 	 * 
 	 * @param users
 	 */
-	public static void save(Users users) {
+	public static void save(UsersController users) {
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Users.class);
+			jc = JAXBContext.newInstance(UsersController.class);
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.marshal(users, new File(FILEPATH));

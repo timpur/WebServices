@@ -10,7 +10,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import bean.Poll;
-import bean.Polls;
+import bean.PollsController;
 import bean.Response;
 
 public class PollDao {
@@ -20,37 +20,27 @@ public class PollDao {
 		FILEPATH = filePath;
 	}
 
-	public static Polls getPolls() {
-		Polls polls = load();
+	public static PollsController getPolls() {
+		PollsController polls = load();
 		return polls;
 	}
 
-	public static Poll getPoll(int id) {
-		return null;
-	}
-
-	public static void createPoll(Poll poll) {
-
-	}
-
-	public static void vote(int id, Response resp) {
-
-	}
+	
 
 	/**
 	 * convert XML file into java objects using unmarshall
 	 * 
 	 * @return
 	 */
-	private static Polls load() {
+	private static PollsController load() {
 
-		Polls polls = null;
+		PollsController polls = null;
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Polls.class);
+			jc = JAXBContext.newInstance(PollsController.class);
 			Unmarshaller u = jc.createUnmarshaller();
 			FileInputStream fin = new FileInputStream(FILEPATH);
-			polls = (Polls) u.unmarshal(fin);
+			polls = (PollsController) u.unmarshal(fin);
 			fin.close();
 			return polls;
 		} catch (JAXBException e) {
@@ -66,10 +56,10 @@ public class PollDao {
 	 * 
 	 * @param polls
 	 */
-	public static void save(Polls polls) {
+	public static void save(PollsController polls) {
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Polls.class);
+			jc = JAXBContext.newInstance(PollsController.class);
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.marshal(polls, new File(FILEPATH));
