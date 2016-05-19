@@ -4,10 +4,10 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-19T18:38:24.714+10:00</creationDate>
+        <creationDate>2016-05-20T08:53:41.491+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <isClosed>true</isClosed>
+        <isClosed>false</isClosed>
         <options>
             <option>18pm</option>
             <option>19:00</option>
@@ -34,20 +34,13 @@
                     <option>19:00</option>
                 </options>
             </response>
-            <response>
-                <name>lee</name>
-                <options>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                </options>
-            </response>
         </responses>
     </poll>
     <poll>
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-19T18:38:24.714+10:00</creationDate>
+        <creationDate>2016-05-20T08:53:41.491+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>

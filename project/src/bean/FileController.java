@@ -1,7 +1,5 @@
 package bean;
 
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,7 +19,7 @@ public class FileController<T> {
 		this.type = type;
 	}
 
-	private T load() {
+	public T load() {
 
 		T obj = null;
 		JAXBContext jc;

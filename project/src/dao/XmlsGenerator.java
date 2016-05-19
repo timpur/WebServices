@@ -14,6 +14,7 @@ import bean.*;
 public class XmlsGenerator {
 
 	public static void main(String[] args) {
+		PollDao.load();
 		generatePollsXml();
 		generateUsersXml();
 	}
@@ -98,14 +99,11 @@ public class XmlsGenerator {
 
 		poll2.setRespsonses(respsonses2);
 
-		PollsController polls = new PollsController();
-		ArrayList<Poll> pollList = new ArrayList<Poll>();
-		pollList.add(poll);
-		pollList.add(poll2);
-		polls.setPolls(pollList);
-
-		// Boilerplate code to convert objects to XML...
-		PollDao.save(polls);
+		
+		
+		PollDao.pc.addPoll(poll);
+		PollDao.pc.addPoll(poll2);
+		PollDao.save();
 
 	}
 
