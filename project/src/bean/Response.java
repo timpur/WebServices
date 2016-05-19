@@ -7,8 +7,19 @@ import javax.xml.bind.annotation.*;
 public class Response {
 	@XmlElement
 	private String name;
-	@XmlElement
+
+	@XmlElementWrapper(name = "options")
+	@XmlElement(name = "option")
 	private String[] options;
+
+	public Response() {
+	}
+
+	public Response(String name, String[] options) {
+		super();
+		this.name = name;
+		this.options = options;
+	}
 
 	public String getName() {
 		return name;

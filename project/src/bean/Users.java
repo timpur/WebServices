@@ -9,7 +9,15 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "users")
 public class Users implements Serializable {
 	@XmlElement(name = "user")
-	private ArrayList<User> list = new ArrayList<User>();
+	private ArrayList<User> list;
+
+	public Users() {
+		this.list = new ArrayList<User>();
+	}
+
+	public void addUser(User user) {
+		this.list.add(user);
+	}
 
 	public ArrayList<User> getList() {
 		return list;

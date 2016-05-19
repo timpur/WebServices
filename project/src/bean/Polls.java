@@ -9,7 +9,15 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "polls")
 public class Polls implements Serializable {
 	@XmlElement(name = "poll")
-	private ArrayList<Poll> list = new ArrayList<Poll>();
+	private ArrayList<Poll> list;
+
+	public Polls() {
+		this.list = new ArrayList<Poll>();
+	}
+
+	public void addPoll(Poll poll) {
+		this.list.add(poll);
+	}
 
 	public ArrayList<Poll> getList() {
 		return list;

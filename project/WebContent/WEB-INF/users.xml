@@ -5,7 +5,7 @@
         <password>password</password>
     </user>
     <user>
-        <username>username1</username>
-        <password>password1</password>
+        <username>bob</username>
+        <password>bob</password>
     </user>
 </users>
