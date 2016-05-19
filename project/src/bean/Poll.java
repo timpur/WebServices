@@ -31,6 +31,13 @@ public class Poll {
 	private List<Response> respsonses;
 
 	public Poll() {
+		this.creationDate = new Date();
+		this.isClosed = false;
+		this.respsonses = new ArrayList<Response>();
+	}
+
+	public void addResponse(Response response) {
+		this.respsonses.add(response);
 	}
 
 	public int getId() {

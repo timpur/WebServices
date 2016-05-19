@@ -18,17 +18,81 @@ public class UserDao {
 	public static void setFilPath(String filePath) {
 		FILEPATH = filePath;
 	}
-	
-	
-	public static User login(String username, String password){
+
+	/**
+	 * find a user object by username and password return null if not found
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public static User login(String username, String password) {
+
+		// load users from XML files
+		Users users = load();
+
+		// loop users
+		for (User user : users.getList()) {
+			// if any user match the given paramter, then login success
+			if (user.getUsername().equals(username)
+					&& user.getPassword().equals(password)) {
+				return user;
+			}
+		}
+
+		// if nothing found then return null
 		return null;
+
 	}
 
-	public static User signup(String username, String password){
-		return null;
+	/**
+	 * sign up new user
+	 * 
+	 * if return 1, means sign up successful
+	 * 
+	 * if return 0, means existing username, and sign up fail
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public static int signup(String username, String password) {
+
+		User existingUser = findUser(username);
+		if (existingUser != null) {
+			// if there is any existing user, stop it
+			return 0;
+		}
+
+		// create a new user object
+		User user = new User(username, password);
+
+		Users users = load();
+		// add new user to existing users object
+		users.addUser(user);
+
+		// save the modified users into XML file
+		save(users);
+		return 1;
 	}
 
-	
+	/**
+	 * find existing user by username
+	 * 
+	 * return null if no user with such username
+	 * 
+	 * @param username
+	 * @return
+	 */
+	private static User findUser(String username) {
+		Users users = load();
+		for (User user : users.getList()) {
+			if (user.getUsername().equals(username)) {
+				return user;
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * convert XML file into java objects

@@ -4,10 +4,10 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-18T19:52:49.146+10:00</creationDate>
+        <creationDate>2016-05-19T18:38:24.714+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <isClosed>false</isClosed>
+        <isClosed>true</isClosed>
         <options>
             <option>18pm</option>
             <option>19:00</option>
@@ -16,17 +16,30 @@
         <responses>
             <response>
                 <name>visitor1</name>
-                <options>19:00</options>
-                <options>20:00</options>
+                <options>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                </options>
             </response>
             <response>
                 <name>visitor2</name>
-                <options>19:00</options>
+                <options>
+                    <option>19:00</option>
+                </options>
             </response>
             <response>
                 <name>visitor3</name>
-                <options>18pm</options>
-                <options>19:00</options>
+                <options>
+                    <option>18pm</option>
+                    <option>19:00</option>
+                </options>
+            </response>
+            <response>
+                <name>lee</name>
+                <options>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                </options>
             </response>
         </responses>
     </poll>
@@ -34,7 +47,7 @@
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-18T19:52:49.146+10:00</creationDate>
+        <creationDate>2016-05-19T18:38:24.714+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>
@@ -46,17 +59,23 @@
         <responses>
             <response>
                 <name>visitor1</name>
-                <options>19:00</options>
-                <options>20:00</options>
+                <options>
+                    <option>19:00</option>
+                    <option>20:00</option>
+                </options>
             </response>
             <response>
                 <name>visitor2</name>
-                <options>19:00</options>
+                <options>
+                    <option>19:00</option>
+                </options>
             </response>
             <response>
                 <name>visitor3</name>
-                <options>18pm</options>
-                <options>19:00</options>
+                <options>
+                    <option>18pm</option>
+                    <option>19:00</option>
+                </options>
             </response>
         </responses>
     </poll>
