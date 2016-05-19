@@ -29,10 +29,10 @@ public class UserDao {
 	public static User login(String username, String password) {
 
 		// load users from XML files
-		Users users = load();
+		UsersController users = load();
 
 		// loop users
-		for (User user : users.getList()) {
+		for (User user : users.getUsers()) {
 			// if any user match the given paramter, then login success
 			if (user.getUsername().equals(username)
 					&& user.getPassword().equals(password)) {
@@ -67,7 +67,7 @@ public class UserDao {
 		// create a new user object
 		User user = new User(username, password);
 
-		Users users = load();
+		UsersController users = load();
 		// add new user to existing users object
 		users.addUser(user);
 
@@ -85,8 +85,8 @@ public class UserDao {
 	 * @return
 	 */
 	private static User findUser(String username) {
-		Users users = load();
-		for (User user : users.getList()) {
+		UsersController users = load();
+		for (User user : users.getUsers()) {
 			if (user.getUsername().equals(username)) {
 				return user;
 			}
@@ -99,15 +99,15 @@ public class UserDao {
 	 * 
 	 * @return
 	 */
-	public static Users load() {
+	public static UsersController load() {
 
-		Users users = null;
+		UsersController users = null;
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Users.class);
+			jc = JAXBContext.newInstance(UsersController.class);
 			Unmarshaller u = jc.createUnmarshaller();
 			FileInputStream fin = new FileInputStream(FILEPATH);
-			users = (Users) u.unmarshal(fin);
+			users = (UsersController) u.unmarshal(fin);
 			fin.close();
 			return users;
 		} catch (JAXBException e) {
@@ -123,10 +123,10 @@ public class UserDao {
 	 * 
 	 * @param users
 	 */
-	public static void save(Users users) {
+	public static void save(UsersController users) {
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Users.class);
+			jc = JAXBContext.newInstance(UsersController.class);
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.marshal(users, new File(FILEPATH));

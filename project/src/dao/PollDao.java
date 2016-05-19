@@ -11,7 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import bean.Poll;
-import bean.Polls;
+import bean.PollsController;
 import bean.Response;
 import bean.User;
 
@@ -27,31 +27,11 @@ public class PollDao {
 	 * 
 	 * @return
 	 */
-	public static Polls getPolls() {
-		Polls polls = load();
+	public static PollsController getPolls() {
+		PollsController polls = load();
 		return polls;
 	}
-
-	/**
-	 * return Poll with same Id
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public static Poll getPoll(int id) {
-
-		Polls polls = load();
-		// loop poll and find which has same id
-		for (Poll poll : polls.getList()) {
-			if (poll.getId() == id) {
-				return poll;
-			}
-		}
-
-		// if no poll found with given id
-		return null;
-	}
-
+	
 	/**
 	 * when return 0, means login fail when return 1, means create poll success
 	 * 
@@ -84,7 +64,7 @@ public class PollDao {
 		poll.setId(nextId());
 
 		// add new poll to current polls
-		Polls polls = load();
+		PollsController polls = load();
 		polls.addPoll(poll);
 		// save current polls back to XML file
 		save(polls);
@@ -158,8 +138,8 @@ public class PollDao {
 	 * @param poll
 	 */
 	private static void update(Poll poll) {
-		Polls polls = load();
-		ArrayList<Poll> pollList = polls.getList();
+		PollsController polls = load();
+		ArrayList<Poll> pollList = polls.getPolls();
 		for (int i = 0; i < pollList.size(); i++) {
 			if (poll.getId() == pollList.get(i).getId()) {
 				// remove old one
@@ -180,9 +160,9 @@ public class PollDao {
 	 * @return
 	 */
 	private static int nextId() {
-		Polls polls = load();
+		PollsController polls = load();
 		int largestId = 0;
-		for (Poll poll : polls.getList()) {
+		for (Poll poll : polls.getPolls()) {
 			if (poll.getId() > largestId) {
 				largestId = poll.getId();
 			}
@@ -195,15 +175,15 @@ public class PollDao {
 	 * 
 	 * @return
 	 */
-	private static Polls load() {
+	private static PollsController load() {
 
-		Polls polls = null;
+		PollsController polls = null;
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Polls.class);
+			jc = JAXBContext.newInstance(PollsController.class);
 			Unmarshaller u = jc.createUnmarshaller();
 			FileInputStream fin = new FileInputStream(FILEPATH);
-			polls = (Polls) u.unmarshal(fin);
+			polls = (PollsController) u.unmarshal(fin);
 			fin.close();
 			return polls;
 		} catch (JAXBException e) {
@@ -219,10 +199,10 @@ public class PollDao {
 	 * 
 	 * @param polls
 	 */
-	public static void save(Polls polls) {
+	public static void save(PollsController polls) {
 		JAXBContext jc;
 		try {
-			jc = JAXBContext.newInstance(Polls.class);
+			jc = JAXBContext.newInstance(PollsController.class);
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.marshal(polls, new File(FILEPATH));
