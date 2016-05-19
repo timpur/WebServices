@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <username>username</username>
-        <password>password</password>
+        <username>David01</username>
+        <password>qwerty123</password>
     </user>
     <user>
-        <username>username1</username>
-        <password>password1</password>
+        <username>Tim01</username>
+        <password>asdfg123</password>
+    </user>
+    <user>
+    	<username>Makean01</username>
+    	<password>zxcvb01</password>
+    </user>
+    <user>
+    	<username>Master01</username>
+    	<password>master01</password>
     </user>
 </users>
