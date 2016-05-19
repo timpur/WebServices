@@ -27,14 +27,14 @@ public class XmlsGenerator {
 		user2.setPassword("password1");
 		user2.setUsername("username1");
 
-		UsersController users = new UsersController();
+		Users users = new Users();
 
 		ArrayList<User> userList = new ArrayList<User>();
 
 		userList.add(user1);
 		userList.add(user2);
 
-		users.setUsers(userList);
+		users.setList(userList);
 
 		UserDao.save(users);
 	}
@@ -98,11 +98,11 @@ public class XmlsGenerator {
 
 		poll2.setRespsonses(respsonses2);
 
-		PollsController polls = new PollsController();
+		Polls polls = new Polls();
 		ArrayList<Poll> pollList = new ArrayList<Poll>();
 		pollList.add(poll);
 		pollList.add(poll2);
-		polls.setPolls(pollList);
+		polls.setList(pollList);
 
 		// Boilerplate code to convert objects to XML...
 		PollDao.save(polls);

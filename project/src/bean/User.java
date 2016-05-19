@@ -9,11 +9,8 @@ import javax.xml.bind.annotation.*;
 public class User {
 	@XmlElement
 	private String username;
-	
 	@XmlElement
 	private String password;
-	
-	
 	public String getUsername() {
 		return username;
 	}

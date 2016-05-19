@@ -12,22 +12,16 @@ public class Poll {
 
 	@XmlElement
 	private String title;
-	
 	@XmlElement
 	private String author;
-	
 	@XmlElement
 	private Date creationDate;
-	
 	@XmlElement
 	private String location;
-	
 	@XmlElement
 	private String description;
-	
 	@XmlElement
 	private boolean isClosed;
-	
 	@XmlElementWrapper(name = "options")
 	@XmlElement(name = "option")
 	private String[] options;
