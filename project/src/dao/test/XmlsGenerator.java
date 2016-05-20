@@ -1,43 +1,30 @@
-package dao;
+package dao.test;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-
+import java.util.*;
+import server.*;
 import bean.*;
 
 public class XmlsGenerator {
 
 	public static void main(String[] args) {
-		PollDao.load();
 		generatePollsXml();
 		generateUsersXml();
 	}
 
 	private static void generateUsersXml() {
 		User user1 = new User();
-		user1.setPassword("password");
-		user1.setUsername("username");
+		user1.setUsername("tim");
+		user1.setPassword("pass");
+		
 
 		User user2 = new User();
-		user2.setPassword("password1");
-		user2.setUsername("username1");
 
-		UsersController users = new UsersController();
+		user2.setUsername("test");
+		user2.setPassword("pass");
 
-		ArrayList<User> userList = new ArrayList<User>();
-
-		userList.add(user1);
-		userList.add(user2);
-
-		users.setUsers(userList);
-
-		UserDao.save(users);
+		ApplicationController.UC.addUser(user1);
+		ApplicationController.UC.addUser(user2);
+		ApplicationController.save();
 	}
 
 	public static void generatePollsXml() {
@@ -101,9 +88,9 @@ public class XmlsGenerator {
 
 		
 		
-		PollDao.pc.addPoll(poll);
-		PollDao.pc.addPoll(poll2);
-		PollDao.save();
+		ApplicationController.PC.addPoll(poll);
+		ApplicationController.PC.addPoll(poll2);
+		ApplicationController.save();
 
 	}
 

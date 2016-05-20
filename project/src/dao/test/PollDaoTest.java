@@ -1,12 +1,12 @@
 package dao.test;
 
-import dao.PollDao;
+import server.ApplicationController;
 import bean.Poll;
 
 public class PollDaoTest {
 
 	public static void main(String[] args) {
-		Poll poll = PollDao.pc.getPollByID(1);
+		Poll poll = ApplicationController.PC.getPollByID(1);
 //		System.out.println(poll.getRespsonses().size());
 
 		// PollDao.vote(1, "lee", new String[]{"19:00", "20:00"});

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <username>username</username>
-        <password>password</password>
+        <username>tim</username>
+        <password>pass</password>
     </user>
     <user>
-        <username>username1</username>
-        <password>password1</password>
+        <username>test</username>
+        <password>pass</password>
     </user>
 </users>

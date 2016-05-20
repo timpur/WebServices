@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.xml.bind.annotation.*;
 
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "polls")
 public class PollsController implements Serializable {
@@ -71,7 +70,7 @@ public class PollsController implements Serializable {
 		// dynamic calculate next ID
 		poll.setId(nextPollId());
 		// add new poll to current polls
-		polls.add(poll);
+		addPoll(poll);
 	}
 
 	private boolean updatePool(Poll poll) {
@@ -109,6 +108,10 @@ public class PollsController implements Serializable {
 		poll.addResponse(response);
 
 		return true;
+	}
+
+	public String toString() {
+		return String.format("{Poll Count: %d}", polls.size());
 	}
 
 }
