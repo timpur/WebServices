@@ -29,6 +29,10 @@ public class PollsController implements Serializable {
 	public void setPolls(List<Poll> list) {
 		this.polls = list;
 	}
+	
+	public void clearPolls(){
+		polls.clear();
+	}
 
 	public Poll getPollByID(int id) {
 		// loop poll and find which has same id
@@ -97,7 +101,7 @@ public class PollsController implements Serializable {
 		return true;
 	}
 
-	public boolean vote(int pollID, User user, String options[]) {
+	public boolean vote(int pollID, User user, List<Option> options) {
 
 		Poll poll = getPollByID(pollID);
 

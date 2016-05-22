@@ -28,6 +28,10 @@ public class UsersController implements Serializable {
 	public void setUsers(List<User> list) {
 		this.users = list;
 	}
+	
+	public void clearUsers(){
+		users.clear();
+	}
 
 	private User findUser(String username) {
 		for (User user : users) {

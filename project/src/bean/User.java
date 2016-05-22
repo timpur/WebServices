@@ -5,7 +5,7 @@ import java.util.List;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement
+@XmlRootElement(name = "user")
 public class User {
 	@XmlElement
 	private String username;

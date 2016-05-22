@@ -7,11 +7,14 @@ import bean.*;
 public class XmlsGenerator {
 
 	public static void main(String[] args) {
-		generatePollsXml();
+		ApplicationController.load();
 		generateUsersXml();
+		generatePollsXml();
 	}
 
 	private static void generateUsersXml() {
+		ApplicationController.UC.clearUsers();
+		
 		User user1 = new User();
 		user1.setUsername("tim");
 		user1.setPassword("pass");
@@ -28,6 +31,9 @@ public class XmlsGenerator {
 	}
 
 	public static void generatePollsXml() {
+		ApplicationController.PC.clearPolls();
+		
+		// Poll 1
 		Poll poll = new Poll();
 		poll.setId(1);
 		poll.setAuthor("bob");
@@ -35,28 +41,27 @@ public class XmlsGenerator {
 		poll.setLocation("sydney");
 		poll.setTitle("first poll");
 		poll.setCreationDate(new Date());
-		poll.setOptions(new String[] { "18pm", "19:00", "20:00" });
+		poll.setOptions(new String[] { "18:00", "19:00", "20:00" });
 
 		Response r1 = new Response();
 		r1.setName("visitor1");
-		r1.setOptions(new String[] { "19:00", "20:00" });
+		r1.setOptions(new int[] { 2, 3 });
 
 		Response r2 = new Response();
 		r2.setName("visitor2");
-		r2.setOptions(new String[] { "19:00" });
+		r2.setOptions(new int[] { 2});
 
 		Response r3 = new Response();
 		r3.setName("visitor3");
-		r3.setOptions(new String[] { "18pm", "19:00" });
+		r3.setOptions(new int[] { 1, 2 });
 
-		List<Response> respsonses = new ArrayList<Response>();
-
-		respsonses.add(r1);
-		respsonses.add(r2);
-		respsonses.add(r3);
-
-		poll.setRespsonses(respsonses);
-
+		poll.addResponse(r1);
+		poll.addResponse(r2);
+		poll.addResponse(r3);
+		
+		
+		
+		//Poll 2
 		Poll poll2 = new Poll();
 		poll2.setId(2);
 		poll2.setAuthor("tom");
@@ -64,7 +69,7 @@ public class XmlsGenerator {
 		poll2.setLocation("sydney");
 		poll2.setTitle("first poll");
 		poll2.setCreationDate(new Date());
-		poll2.setOptions(new String[] { "18pm", "19:00", "20:00" });
+		poll2.setOptions(new String[] { "18:00", "19:00", "20:00" });
 
 		Response r4 = new Response();
 		r4.setName("visitor1");
@@ -78,16 +83,12 @@ public class XmlsGenerator {
 		r6.setName("visitor3");
 		r6.setOptions(new String[] { "18pm", "19:00" });
 
-		List<Response> respsonses2 = new ArrayList<Response>();
-
-		respsonses2.add(r4);
-		respsonses2.add(r5);
-		respsonses2.add(r6);
-
-		poll2.setRespsonses(respsonses2);
+		poll2.addResponse(r4);
+		poll2.addResponse(r5);
+		poll2.addResponse(r6);
 
 		
-		
+		// Add Polls
 		ApplicationController.PC.addPoll(poll);
 		ApplicationController.PC.addPoll(poll2);
 		ApplicationController.save();

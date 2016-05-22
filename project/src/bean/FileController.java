@@ -27,7 +27,7 @@ public class FileController<T> {
 			jc = JAXBContext.newInstance(type);
 			Unmarshaller u = jc.createUnmarshaller();
 			FileInputStream fin = new FileInputStream(filePath);
-			obj = (T) u.unmarshal(fin);
+			obj = (T)u.unmarshal(fin);
 			fin.close();
 			return obj;
 		} catch (JAXBException e) {

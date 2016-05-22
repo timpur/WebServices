@@ -4,72 +4,94 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-20T17:40:10.150+10:00</creationDate>
+        <creationDate>2016-05-22T14:35:12.313+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>
         <options>
-            <option>18pm</option>
-            <option>19:00</option>
-            <option>20:00</option>
+            <options id="0">
+                <value>18:00</value>
+            </options>
+            <options id="1">
+                <value>19:00</value>
+            </options>
+            <options id="2">
+                <value>20:00</value>
+            </options>
         </options>
         <responses>
-            <response>
+            <respsonses>
                 <name>visitor1</name>
                 <options>
-                    <option>19:00</option>
-                    <option>20:00</option>
+                    <options id="2"/>
+                    <options id="3"/>
                 </options>
-            </response>
-            <response>
+            </respsonses>
+            <respsonses>
                 <name>visitor2</name>
                 <options>
-                    <option>19:00</option>
+                    <options id="2"/>
                 </options>
-            </response>
-            <response>
+            </respsonses>
+            <respsonses>
                 <name>visitor3</name>
                 <options>
-                    <option>18pm</option>
-                    <option>19:00</option>
+                    <options id="1"/>
+                    <options id="2"/>
                 </options>
-            </response>
+            </respsonses>
         </responses>
     </poll>
     <poll>
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-20T17:40:10.150+10:00</creationDate>
+        <creationDate>2016-05-22T14:35:12.313+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>
         <options>
-            <option>18pm</option>
-            <option>19:00</option>
-            <option>20:00</option>
+            <options id="0">
+                <value>18:00</value>
+            </options>
+            <options id="1">
+                <value>19:00</value>
+            </options>
+            <options id="2">
+                <value>20:00</value>
+            </options>
         </options>
         <responses>
-            <response>
+            <respsonses>
                 <name>visitor1</name>
                 <options>
-                    <option>19:00</option>
-                    <option>20:00</option>
+                    <options id="0">
+                        <value>19:00</value>
+                    </options>
+                    <options id="1">
+                        <value>20:00</value>
+                    </options>
                 </options>
-            </response>
-            <response>
+            </respsonses>
+            <respsonses>
                 <name>visitor2</name>
                 <options>
-                    <option>19:00</option>
+                    <options id="0">
+                        <value>19:00</value>
+                    </options>
                 </options>
-            </response>
-            <response>
+            </respsonses>
+            <respsonses>
                 <name>visitor3</name>
                 <options>
-                    <option>18pm</option>
-                    <option>19:00</option>
+                    <options id="0">
+                        <value>18pm</value>
+                    </options>
+                    <options id="1">
+                        <value>19:00</value>
+                    </options>
                 </options>
-            </response>
+            </respsonses>
         </responses>
     </poll>
 </polls>
