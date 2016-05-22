@@ -4,19 +4,19 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-22T14:35:12.313+10:00</creationDate>
+        <creationDate>2016-05-22T20:08:51.135+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>
         <options>
             <options id="0">
-                <value>18:00</value>
+                <value>2016-06-01T14:00:00+10:00</value>
             </options>
             <options id="1">
-                <value>19:00</value>
+                <value>2016-06-01T16:00:00+10:00</value>
             </options>
             <options id="2">
-                <value>20:00</value>
+                <value>2016-06-01T18:00:00+10:00</value>
             </options>
         </options>
         <responses>
@@ -46,50 +46,40 @@
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-22T14:35:12.313+10:00</creationDate>
+        <creationDate>2016-05-22T20:08:51.135+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
         <isClosed>false</isClosed>
         <options>
             <options id="0">
-                <value>18:00</value>
+                <value>2016-06-01T14:00:00+10:00</value>
             </options>
             <options id="1">
-                <value>19:00</value>
+                <value>2016-06-01T16:00:00+10:00</value>
             </options>
             <options id="2">
-                <value>20:00</value>
+                <value>2016-06-01T18:00:00+10:00</value>
             </options>
         </options>
         <responses>
             <respsonses>
                 <name>visitor1</name>
                 <options>
-                    <options id="0">
-                        <value>19:00</value>
-                    </options>
-                    <options id="1">
-                        <value>20:00</value>
-                    </options>
+                    <options id="1"/>
+                    <options id="2"/>
                 </options>
             </respsonses>
             <respsonses>
                 <name>visitor2</name>
                 <options>
-                    <options id="0">
-                        <value>19:00</value>
-                    </options>
+                    <options id="3"/>
                 </options>
             </respsonses>
             <respsonses>
                 <name>visitor3</name>
                 <options>
-                    <options id="0">
-                        <value>18pm</value>
-                    </options>
-                    <options id="1">
-                        <value>19:00</value>
-                    </options>
+                    <options id="1"/>
+                    <options id="3"/>
                 </options>
             </respsonses>
         </responses>

@@ -121,15 +121,15 @@ public class Poll {
 		this.respsonses.add(response);
 	}
 	
-	public void setOptions(String options[]) {
+	public void setOptions(Date options[]) {
 		int ID = findNextOptionID();
-		for(String o : options){
+		for(Date o : options){
 			addOption(ID, o);
 			++ID;
 		}
 	}
 	
-	public void addOption(int ID, String value){
+	public void addOption(int ID, Date value){
 		Option option = new Option(ID, value);
 		this.options.add(option);
 	}
@@ -141,6 +141,14 @@ public class Poll {
 				lastid = option.getID();
 		}
 		return lastid + 1;
+	}
+	
+	private Option getOptionByID(int ID){
+		for(Option o : options){
+			if(o.getID() == ID)
+				return o;
+		}
+		return null;
 	}
 	
 }

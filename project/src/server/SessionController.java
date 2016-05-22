@@ -1,6 +1,8 @@
 package server;
 
 import bean.*;
+import java.util.*;
+
 
 public class SessionController {
 
@@ -19,11 +21,11 @@ public class SessionController {
 			return false;
 	}
 
-	public boolean createPoll(String username, String password, String title,
-			String location, String description, String options[]) {
+	public boolean createPoll(String title,
+			String location, String description, Date options[]) {
 		// Verifiy poll data if not correct return false
 		// Then add
-		ApplicationController.PC.createPoll(username, password, title,
+		ApplicationController.PC.createPoll(currentUser.getUsername(), title,
 				location, description, options);
 		
 		return true;

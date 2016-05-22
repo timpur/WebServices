@@ -1,8 +1,7 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
@@ -44,6 +43,10 @@ public class PollsController implements Serializable {
 		// if no poll found with given id
 		return null;
 	}
+	
+	public Poll getPollByIndex(int index){
+		return polls.get(index);
+	}
 
 	public int getPollIndexByID(int ID) {
 		for (int i = 0; i < polls.size(); ++i) {
@@ -63,8 +66,8 @@ public class PollsController implements Serializable {
 		return largestId + 1;
 	}
 
-	public void createPoll(String username, String password, String title,
-			String location, String description, String options[]) {
+	public void createPoll(String username, String title,
+			String location, String description, Date options[]) {
 		Poll poll = new Poll();
 		poll.setAuthor(username);
 		poll.setTitle(title);

@@ -43,9 +43,9 @@ public class Response {
 		this.options.add(option);
 	}
 	
-	public void setOptions(String options[]) {
+	public void setOptions(Date options[]) {
 		int ID = findNextOptionID();
-		for(String o : options){
+		for(Date o : options){
 			addOption(ID, o);
 			++ID;
 		}
@@ -57,9 +57,17 @@ public class Response {
 		}
 	}
 	
-	public void addOption(int ID, String value){
+	public void addOption(int ID, Date value){
 		Option option = new Option(ID, value);
 		this.options.add(option);
+	}
+	
+	public Option getOptionByIndex(int index){
+		return options.get(index);
+	}
+	
+	public int getOptionIDByIndex(int index){
+		return options.get(index).getID();
 	}
 	
 	private int findNextOptionID(){
