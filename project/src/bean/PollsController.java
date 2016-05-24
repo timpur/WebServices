@@ -45,6 +45,9 @@ public class PollsController implements Serializable {
 	}
 	
 	public Poll getPollByIndex(int index){
+		if(index >= polls.size()){
+			return null;
+		}
 		return polls.get(index);
 	}
 
