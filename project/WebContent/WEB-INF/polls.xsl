@@ -27,6 +27,9 @@
 				</tr>
 			</thead>
 		</table>
+		<tbody>
+			<xsl:apply-templates/>
+		</tbody>
 	</xsl:template>
 	
 </xsl:stylesheet>
