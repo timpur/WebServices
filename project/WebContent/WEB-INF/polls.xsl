@@ -3,6 +3,9 @@
 	<xsl:template match="polls">
 		<html>
 			<head>
+				<style>
+				
+				</style>
 			</head>
 		</html>
 		<body>
@@ -32,4 +35,30 @@
 		</tbody>
 	</xsl:template>
 	
+	<xsl:template match="id">
+	</xsl:template>
+	
+	<xsl:template match="title">
+	</xsl:template>
+	
+	<xsl:template match="author">
+	</xsl:template>
+	
+	<xsl:template match="creationDate">
+	</xsl:template>
+	
+	<xsl:template match="location">
+	</xsl:template>
+	
+	<xsl:template match="description">
+	</xsl:template>
+	
+	<xsl:template match="itsClosed">
+	</xsl:template>
+	
+	<xsl:template match="options">
+	</xsl:template>
+	
+	<xsl:template match="responses">
+	</xsl:template>
 </xsl:stylesheet>
