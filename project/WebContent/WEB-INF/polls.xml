@@ -21,26 +21,26 @@
             </options>
         </options>
         <responses>
-            <respsonses>
+            <responses>
                 <name>visitor1</name>
                 <options>
                     <options id="2"/>
                     <options id="3"/>
                 </options>
-            </respsonses>
-            <respsonses>
+            </responses>
+            <responses>
                 <name>visitor2</name>
                 <options>
                     <options id="2"/>
                 </options>
-            </respsonses>
-            <respsonses>
+            </responses>
+            <responses>
                 <name>visitor3</name>
                 <options>
                     <options id="1"/>
                     <options id="2"/>
                 </options>
-            </respsonses>
+            </responses>
         </responses>
     </poll>
     <poll>
