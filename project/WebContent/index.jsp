@@ -7,7 +7,8 @@
 <title>WebServices</title>
 </head>
 <body>
-	<h1>Web Services</h1>
-	<%=ApplicationController.PC.toString()%>
+	<h1 align="center">Web Services</h1>
+<%=ApplicationController.PC.toString()%>
+
 </body>
 </html>
