@@ -111,14 +111,14 @@ public class PollsController implements Serializable {
 		return true;
 	}
 
-	public boolean vote(int pollID, User user, List<Option> options) {
+	public boolean vote(int pollID, String visitorName, List<Option> options) {
 
 		Poll poll = getPollByID(pollID);
 
 		if (poll == null)
 			return false;
 
-		Response response = new Response(user.getUsername(), options);
+		Response response = new Response(visitorName, options);
 		poll.addResponse(response);
 
 		// save XML
