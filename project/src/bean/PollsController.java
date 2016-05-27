@@ -126,6 +126,21 @@ public class PollsController implements Serializable {
 		return true;
 	}
 
+	
+	/**
+	 * After user login, fetch all polls created by them
+	 */
+	public List<Poll> getPollsForUser(String username) {
+		List<Poll> resultList = new ArrayList<Poll>();
+		for (Poll poll: this.getPolls()) {
+			if (poll.getAuthor().equals(username)){
+				resultList.add(poll);
+			}
+		}
+		return resultList;
+	}
+	
+	
 	public String toString() {
 		return String.format("{Poll Count: %d}", polls.size());
 	}
