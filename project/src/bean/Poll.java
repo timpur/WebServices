@@ -29,9 +29,11 @@ public class Poll {
 	private boolean isClosed;
 	
 	@XmlElementWrapper(name = "options")
+	@XmlElement(name="option")
 	private List<Option> options;
 
 	@XmlElementWrapper(name = "responses")
+	@XmlElement(name="response")
 	private List<Response> respsonses;
 
 	public Poll() {

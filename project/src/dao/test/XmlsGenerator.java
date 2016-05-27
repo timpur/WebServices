@@ -40,11 +40,9 @@ public class XmlsGenerator {
 		poll.setLocation("sydney");
 		poll.setTitle("first poll");
 		poll.setCreationDate(new Date());
-		poll.setOptions(new Date[] { 
-				Option.paseDateTime("2016-06-01 14:00"),
-				Option.paseDateTime("2016-06-01 16:00"), 
-				Option.paseDateTime("2016-06-01 18:00") 
-				});
+		poll.setOptions(new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+				Option.paseDateTime("2016-06-01 16:00"),
+				Option.paseDateTime("2016-06-01 18:00") });
 
 		Response r1 = new Response();
 		r1.setName("visitor1");
@@ -65,16 +63,15 @@ public class XmlsGenerator {
 		// Poll 2
 		Poll poll2 = new Poll();
 		poll2.setId(2);
+		poll2.setClosed(true);
 		poll2.setAuthor("tom");
 		poll2.setDescription("description");
 		poll2.setLocation("sydney");
 		poll2.setTitle("first poll");
 		poll2.setCreationDate(new Date());
-		poll2.setOptions(new Date[] { 
-				Option.paseDateTime("2016-06-01 14:00"),
-				Option.paseDateTime("2016-06-01 16:00"), 
-				Option.paseDateTime("2016-06-01 18:00") 
-				});
+		poll2.setOptions(new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+				Option.paseDateTime("2016-06-01 16:00"),
+				Option.paseDateTime("2016-06-01 18:00") });
 
 		Response r4 = new Response();
 		r4.setName("visitor1");
@@ -96,6 +93,16 @@ public class XmlsGenerator {
 		ApplicationController.PC.addPoll(poll);
 		ApplicationController.PC.addPoll(poll2);
 		ApplicationController.save();
+
+		// test create poll function works
+		ApplicationController.PC.createPoll(
+				"test",
+				"title",
+				"location",
+				"description",
+				new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+						Option.paseDateTime("2016-06-01 16:00"),
+						Option.paseDateTime("2016-06-01 18:00") });
 
 	}
 

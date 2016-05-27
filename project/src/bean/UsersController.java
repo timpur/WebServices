@@ -5,6 +5,8 @@ import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
+import server.ApplicationController;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
 public class UsersController implements Serializable {
@@ -42,7 +44,7 @@ public class UsersController implements Serializable {
 		return null;
 	}
 
-	public boolean addUser(String userName, String password) {
+	public boolean createUser(String userName, String password) {
 
 		if (findUser(userName) != null)
 			return false;
@@ -50,7 +52,9 @@ public class UsersController implements Serializable {
 		// create a new user object
 		User user = new User(userName, password);
 		addUser(user);
-
+		
+		// Save XML
+		ApplicationController.save();
 		return true;
 	}
 

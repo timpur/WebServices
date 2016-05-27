@@ -11,6 +11,7 @@ public class Response {
 	private String name;
 
 	@XmlElementWrapper(name = "options")
+	@XmlElement(name = "option")
 	private List<Option> options;
 
 	public Response() {

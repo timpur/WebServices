@@ -5,6 +5,8 @@ import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
+import server.ApplicationController;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "polls")
 public class PollsController implements Serializable {
@@ -28,8 +30,8 @@ public class PollsController implements Serializable {
 	public void setPolls(List<Poll> list) {
 		this.polls = list;
 	}
-	
-	public void clearPolls(){
+
+	public void clearPolls() {
 		polls.clear();
 	}
 
@@ -43,13 +45,7 @@ public class PollsController implements Serializable {
 		// if no poll found with given id
 		return null;
 	}
-	
-	public Poll getPollByIndex(int index){
-		if(index >= polls.size()){
-			return null;
-		}
-		return polls.get(index);
-	}
+
 
 	public int getPollIndexByID(int ID) {
 		for (int i = 0; i < polls.size(); ++i) {
@@ -69,8 +65,8 @@ public class PollsController implements Serializable {
 		return largestId + 1;
 	}
 
-	public void createPoll(String username, String title,
-			String location, String description, Date options[]) {
+	public void createPoll(String username, String title, String location,
+			String description, Date options[]) {
 		Poll poll = new Poll();
 		poll.setAuthor(username);
 		poll.setTitle(title);
@@ -81,16 +77,23 @@ public class PollsController implements Serializable {
 		poll.setId(nextPollId());
 		// add new poll to current polls
 		addPoll(poll);
+
+		// save XML
+		ApplicationController.save();
+
 	}
 
-	private boolean updatePool(Poll poll) {
+	private boolean updatePoll(Poll poll) {
 
 		int index = getPollIndexByID(poll.getId());
 		if (index != -1) {
 			polls.set(index, poll);
+			// save XML
+			ApplicationController.save();
 			return true;
-		} else
+		} else {
 			return false;
+		}
 	}
 
 	public boolean closePoll(int pollID, User user) {
@@ -103,7 +106,8 @@ public class PollsController implements Serializable {
 			return false;
 
 		poll.setClosed(true);
-
+		// save to XML
+		updatePoll(poll);
 		return true;
 	}
 
@@ -117,6 +121,8 @@ public class PollsController implements Serializable {
 		Response response = new Response(user.getUsername(), options);
 		poll.addResponse(response);
 
+		// save XML
+		updatePoll(poll);
 		return true;
 	}
 
