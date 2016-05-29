@@ -1,7 +1,7 @@
 package bean;
 
 import java.util.*;
-
+import javax.xml.bind.annotation.adapters.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -12,32 +12,34 @@ public class Poll {
 
 	@XmlElement
 	private String title;
-	
+
 	@XmlElement
 	private String author;
-	
+
 	@XmlElement
-	private Date creationDate;
-	
+	@XmlJavaTypeAdapter(DateAdapter.class)
+	private Calendar creationDate;
+
 	@XmlElement
 	private String location;
-	
+
 	@XmlElement
 	private String description;
-	
+
 	@XmlElement
 	private boolean status;
-	
+
 	@XmlElementWrapper(name = "options")
-	@XmlElement(name="option")
+	@XmlElement(name = "option")
 	private List<Option> options;
 
 	@XmlElementWrapper(name = "responses")
-	@XmlElement(name="response")
+	@XmlElement(name = "response")
 	private List<Response> respsonses;
 
 	public Poll() {
-		this.creationDate = new Date();
+		this.creationDate =  new GregorianCalendar();
+		this.creationDate.set(Calendar.MILLISECOND, 0);
 		this.status = true;
 		this.respsonses = new ArrayList<Response>();
 		this.options = new ArrayList<Option>();
@@ -67,11 +69,11 @@ public class Poll {
 		this.author = author;
 	}
 
-	public Date getCreationDate() {
+	public Calendar getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(Calendar creationDate) {
 		this.creationDate = creationDate;
 	}
 
@@ -114,43 +116,48 @@ public class Poll {
 	public void setRespsonses(List<Response> respsonses) {
 		this.respsonses = respsonses;
 	}
-	
-	public void addOption(Option option){
+
+	public void addOption(Option option) {
 		this.options.add(option);
 	}
-	
-	public void addResponse(Response response){
+
+	public void addResponse(Response response) {
 		this.respsonses.add(response);
 	}
-	
-	public void setOptions(Date options[]) {
+
+	public void addResponse(String name, String[] options) {
+		Response response = new Response(name, options);
+		this.respsonses.add(response);
+	}
+
+	public void setOptions(Calendar options[]) {
 		int ID = findNextOptionID();
-		for(Date o : options){
+		for (Calendar o : options) {
 			addOption(ID, o);
 			++ID;
 		}
 	}
-	
-	public void addOption(int ID, Date value){
+
+	public void addOption(int ID, Calendar value) {
 		Option option = new Option(ID, value);
 		this.options.add(option);
 	}
-	
-	private int findNextOptionID(){
+
+	private int findNextOptionID() {
 		int lastid = -1;
-		for(Option option : options){
-			if(option.getID() > lastid)
+		for (Option option : options) {
+			if (option.getID() > lastid)
 				lastid = option.getID();
 		}
 		return lastid + 1;
 	}
-	
-	private Option getOptionByID(int ID){
-		for(Option o : options){
-			if(o.getID() == ID)
+
+	private Option getOptionByID(int ID) {
+		for (Option o : options) {
+			if (o.getID() == ID)
 				return o;
 		}
 		return null;
 	}
-	
+
 }

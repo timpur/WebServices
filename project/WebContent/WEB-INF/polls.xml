@@ -4,19 +4,19 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-29T11:34:22.471+10:00</creationDate>
+        <creationDate>29 May 2016 06:53 PM</creationDate>
         <location>sydney</location>
         <description>description</description>
         <status>true</status>
         <options>
             <option id="0">
-                <value>2016-06-01T14:00:00+10:00</value>
+                <value>01 Jun 2016 02:00 PM</value>
             </option>
             <option id="1">
-                <value>2016-06-01T16:00:00+10:00</value>
+                <value>01 Jun 2016 04:00 PM</value>
             </option>
             <option id="2">
-                <value>2016-06-01T18:00:00+10:00</value>
+                <value>01 Jun 2016 06:00 PM</value>
             </option>
         </options>
         <responses>
@@ -46,19 +46,19 @@
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-29T11:34:22.491+10:00</creationDate>
+        <creationDate>29 May 2016 06:53 PM</creationDate>
         <location>sydney</location>
         <description>description</description>
         <status>false</status>
         <options>
             <option id="0">
-                <value>2016-06-01T14:00:00+10:00</value>
+                <value>01 Jun 2016 02:00 PM</value>
             </option>
             <option id="1">
-                <value>2016-06-01T16:00:00+10:00</value>
+                <value>01 Jun 2016 04:00 PM</value>
             </option>
             <option id="2">
-                <value>2016-06-01T18:00:00+10:00</value>
+                <value>01 Jun 2016 06:00 PM</value>
             </option>
         </options>
         <responses>
@@ -88,19 +88,19 @@
         <id>3</id>
         <title>a title</title>
         <author>author</author>
-        <creationDate>2016-05-29T11:34:22.493+10:00</creationDate>
+        <creationDate>29 May 2016 06:53 PM</creationDate>
         <location>location</location>
         <description>description</description>
         <status>true</status>
         <options>
             <option id="0">
-                <value>2016-06-01T14:00:00+10:00</value>
+                <value>01 Jun 2016 02:00 PM</value>
             </option>
             <option id="1">
-                <value>2016-06-01T16:00:00+10:00</value>
+                <value>01 Jun 2016 04:00 PM</value>
             </option>
             <option id="2">
-                <value>2016-06-01T18:00:00+10:00</value>
+                <value>01 Jun 2016 06:00 PM</value>
             </option>
         </options>
         <responses/>

@@ -2,9 +2,10 @@ package bean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
@@ -13,13 +14,14 @@ public class Option {
 	@XmlAttribute
 	private int ID;
 	@XmlElement()
-	private Date value;
+	@XmlJavaTypeAdapter(DateAdapter.class)
+	private Calendar value;
 
 	public Option() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Option(int ID, Date value) {
+	public Option(int ID, Calendar value) {
 		// TODO Auto-generated constructor stub
 		this.ID = ID;
 		this.value = value;
@@ -33,18 +35,20 @@ public class Option {
 		ID = iD;
 	}
 
-	public Date getValue() {
+	public Calendar getValue() {
 		return value;
 	}
 
-	public void setValue(Date value) {
+	public void setValue(Calendar value) {
 		this.value = value;
 	}
 
-	public static Date paseDateTime(String s) {
+	public static Calendar paseDateTime(String s) {
 		try {
 			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			return ft.parse(s);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(ft.parse(s));
+			return calendar;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,10 +56,12 @@ public class Option {
 		}
 	}
 
-	public static Date paseDate(String s) {
+	public static Calendar paseDate(String s) {
 		try {
 			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
-			return ft.parse(s);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(ft.parse(s));
+			return calendar;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,10 +69,12 @@ public class Option {
 		}
 	}
 
-	public static Date paseTime(String s) {
+	public static Calendar paseTime(String s) {
 		try {
 			SimpleDateFormat ft = new SimpleDateFormat("HH:mm");
-			return ft.parse(s);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(ft.parse(s));
+			return calendar;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

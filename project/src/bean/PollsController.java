@@ -69,7 +69,7 @@ public class PollsController implements Serializable {
 	}
 
 	public void createPoll(String username, String title, String location,
-			String description, Date options[]) {
+			String description, Calendar options[]) {
 		Poll poll = new Poll();
 		poll.setAuthor(username);
 		poll.setTitle(title);

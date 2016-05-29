@@ -23,6 +23,19 @@ public class Response {
 		this.name = name;
 		this.options = options;
 	}
+	
+	public Response(String name, String[] list) {
+		super();
+		this.name = name;
+		this.options = new ArrayList<Option>();
+		
+		int[] options = new int[list.length];
+		for(int i = 0; i < list.length; ++i){
+			options[i] = Integer.parseInt(list[i]);
+		}
+		this.setOptions(options);
+		
+	}
 
 	public String getName() {
 		return name;
@@ -44,9 +57,9 @@ public class Response {
 		this.options.add(option);
 	}
 	
-	public void setOptions(Date options[]) {
+	public void setOptions(Calendar options[]) {
 		int ID = findNextOptionID();
-		for(Date o : options){
+		for(Calendar o : options){
 			addOption(ID, o);
 			++ID;
 		}
@@ -58,7 +71,7 @@ public class Response {
 		}
 	}
 	
-	public void addOption(int ID, Date value){
+	public void addOption(int ID, Calendar value){
 		Option option = new Option(ID, value);
 		this.options.add(option);
 	}

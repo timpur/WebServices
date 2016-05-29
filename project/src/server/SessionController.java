@@ -22,7 +22,7 @@ public class SessionController {
 	}
 
 	public boolean createPoll(String title,
-			String location, String description, Date options[]) {
+			String location, String description, Calendar options[]) {
 		// Verifiy poll data if not correct return false
 		// Then add
 		ApplicationController.PC.createPoll(currentUser.getUsername(), title,

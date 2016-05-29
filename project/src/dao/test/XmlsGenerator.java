@@ -10,6 +10,7 @@ public class XmlsGenerator {
 		ApplicationController.load();
 		generateUsersXml();
 		generatePollsXml();
+		ApplicationController.save();
 	}
 
 	private static void generateUsersXml() {
@@ -26,7 +27,6 @@ public class XmlsGenerator {
 
 		ApplicationController.UC.addUser(user1);
 		ApplicationController.UC.addUser(user2);
-		ApplicationController.save();
 	}
 
 	public static void generatePollsXml() {
@@ -39,8 +39,7 @@ public class XmlsGenerator {
 		poll.setDescription("description");
 		poll.setLocation("sydney");
 		poll.setTitle("first poll");
-		poll.setCreationDate(new Date());
-		poll.setOptions(new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+		poll.setOptions(new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
 				Option.paseDateTime("2016-06-01 16:00"),
 				Option.paseDateTime("2016-06-01 18:00") });
 
@@ -68,8 +67,7 @@ public class XmlsGenerator {
 		poll2.setDescription("description");
 		poll2.setLocation("sydney");
 		poll2.setTitle("first poll");
-		poll2.setCreationDate(new Date());
-		poll2.setOptions(new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+		poll2.setOptions(new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
 				Option.paseDateTime("2016-06-01 16:00"),
 				Option.paseDateTime("2016-06-01 18:00") });
 
@@ -92,7 +90,6 @@ public class XmlsGenerator {
 		// Add Polls
 		ApplicationController.PC.addPoll(poll);
 		ApplicationController.PC.addPoll(poll2);
-		ApplicationController.save();
 
 		// test create poll function works
 		ApplicationController.PC.createPoll(
@@ -100,7 +97,7 @@ public class XmlsGenerator {
 				"a title",
 				"location",
 				"description",
-				new Date[] { Option.paseDateTime("2016-06-01 14:00"),
+				new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
 						Option.paseDateTime("2016-06-01 16:00"),
 						Option.paseDateTime("2016-06-01 18:00") });
 
