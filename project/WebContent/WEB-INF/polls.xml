@@ -4,10 +4,10 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>2016-05-27T18:51:07.091+10:00</creationDate>
+        <creationDate>2016-05-29T11:34:22.471+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <isClosed>false</isClosed>
+        <status>true</status>
         <options>
             <option id="0">
                 <value>2016-06-01T14:00:00+10:00</value>
@@ -46,10 +46,10 @@
         <id>2</id>
         <title>first poll</title>
         <author>tom</author>
-        <creationDate>2016-05-27T18:51:07.116+10:00</creationDate>
+        <creationDate>2016-05-29T11:34:22.491+10:00</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <isClosed>true</isClosed>
+        <status>false</status>
         <options>
             <option id="0">
                 <value>2016-06-01T14:00:00+10:00</value>
@@ -86,12 +86,12 @@
     </poll>
     <poll>
         <id>3</id>
-        <title>title</title>
-        <author>test</author>
-        <creationDate>2016-05-27T18:51:07.155+10:00</creationDate>
+        <title>a title</title>
+        <author>author</author>
+        <creationDate>2016-05-29T11:34:22.493+10:00</creationDate>
         <location>location</location>
         <description>description</description>
-        <isClosed>false</isClosed>
+        <status>true</status>
         <options>
             <option id="0">
                 <value>2016-06-01T14:00:00+10:00</value>

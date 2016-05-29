@@ -1,7 +1,5 @@
 package server;
 
-import java.net.MalformedURLException;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -14,6 +12,7 @@ public class ApplicationListener implements ServletContextListener {
 		System.out.println("Context Created");
 		server = contextEvent.getServletContext();
 		
+		ApplicationController.WebPath = server.getRealPath("/");
 		ApplicationController.PFilePath = server.getRealPath("/WEB-INF/polls.xml");
 		ApplicationController.UFilePath = server.getRealPath("/WEB-INF/users.xml");
 		ApplicationController.load();

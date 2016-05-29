@@ -63,7 +63,7 @@ public class XmlsGenerator {
 		// Poll 2
 		Poll poll2 = new Poll();
 		poll2.setId(2);
-		poll2.setClosed(true);
+		poll2.setStatus(false);
 		poll2.setAuthor("tom");
 		poll2.setDescription("description");
 		poll2.setLocation("sydney");
@@ -96,8 +96,8 @@ public class XmlsGenerator {
 
 		// test create poll function works
 		ApplicationController.PC.createPoll(
-				"test",
-				"title",
+				"author",
+				"a title",
 				"location",
 				"description",
 				new Date[] { Option.paseDateTime("2016-06-01 14:00"),

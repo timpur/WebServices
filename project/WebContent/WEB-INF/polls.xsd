@@ -13,7 +13,7 @@
 							<xs:element name="creationDate" type="xs:dateTime" />
 							<xs:element name="location" type="xs:string" />
 							<xs:element name="description" type="xs:string" />
-							<xs:element name="isClosed" type="xs:boolean" />
+							<xs:element name="status" type="xs:boolean" />
 							<xs:element name="options">
 								<xs:complexType>
 									<xs:sequence>
@@ -55,8 +55,6 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-
-
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>

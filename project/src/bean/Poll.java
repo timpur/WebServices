@@ -26,7 +26,7 @@ public class Poll {
 	private String description;
 	
 	@XmlElement
-	private boolean isClosed;
+	private boolean status;
 	
 	@XmlElementWrapper(name = "options")
 	@XmlElement(name="option")
@@ -38,7 +38,7 @@ public class Poll {
 
 	public Poll() {
 		this.creationDate = new Date();
-		this.isClosed = false;
+		this.status = true;
 		this.respsonses = new ArrayList<Response>();
 		this.options = new ArrayList<Option>();
 	}
@@ -91,12 +91,12 @@ public class Poll {
 		this.description = description;
 	}
 
-	public boolean isClosed() {
-		return isClosed;
+	public boolean getStatus() {
+		return status;
 	}
 
-	public void setClosed(boolean isClosed) {
-		this.isClosed = isClosed;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public List<Option> getOptions() {

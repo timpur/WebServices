@@ -18,6 +18,10 @@ public class PollsController implements Serializable {
 	public PollsController() {
 		this.polls = new ArrayList<Poll>();
 	}
+	
+	public PollsController(List<Poll> list) {
+		this.polls = list;
+	}
 
 	public void addPoll(Poll poll) {
 		this.polls.add(poll);
@@ -45,7 +49,6 @@ public class PollsController implements Serializable {
 		// if no poll found with given id
 		return null;
 	}
-
 
 	public int getPollIndexByID(int ID) {
 		for (int i = 0; i < polls.size(); ++i) {
@@ -105,7 +108,7 @@ public class PollsController implements Serializable {
 		if (!poll.getAuthor().equals(user.getUsername()))
 			return false;
 
-		poll.setClosed(true);
+		poll.setStatus(false);
 		// save to XML
 		updatePoll(poll);
 		return true;
@@ -126,21 +129,37 @@ public class PollsController implements Serializable {
 		return true;
 	}
 
-	
 	/**
 	 * After user login, fetch all polls created by them
 	 */
 	public List<Poll> getPollsForUser(String username) {
 		List<Poll> resultList = new ArrayList<Poll>();
-		for (Poll poll: this.getPolls()) {
-			if (poll.getAuthor().equals(username)){
+		for (Poll poll : this.getPolls()) {
+			if (poll.getAuthor().equals(username)) {
 				resultList.add(poll);
 			}
 		}
 		return resultList;
 	}
-	
-	
+
+	public List<Poll> filterPolls(String author, boolean status, int minResponse) {
+		List<Poll> result = new ArrayList<Poll>();
+
+		for (Poll poll : polls) {
+			boolean match = false;
+
+			if (author.isEmpty() || poll.getAuthor().equalsIgnoreCase(author))
+				if (poll.getStatus() == status)
+					if (poll.getRespsonses().size() >= minResponse)
+						match = true;
+
+			if (match)
+				result.add(poll);
+		}
+
+		return result;
+	}
+
 	public String toString() {
 		return String.format("{Poll Count: %d}", polls.size());
 	}
