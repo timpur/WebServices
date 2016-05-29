@@ -1,26 +1,9 @@
-<html>
-	<head>
-		<style>
-		
-		</style>
-	</head>
-	<body>
-	
-		<h1>List of Current Open Polls</h1>
-	
-	<table class="Polls">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Creation Date</th>
-				<th>Location</th>
-				<th>Status of Poll</th>
-<!-- If the poll is open or closed -->
-			</tr>
-		</thead>
-	</table>
-	
-	</body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<xsl:template match="poll">
+		<xsl:value-of select="title"/>
+	</xsl:template>
+
+</xsl:stylesheet>

@@ -39,9 +39,10 @@ public class ApplicationController {
 	public static String getPollsHTML() throws Exception {
 		PollsController pc = new PollsController(PC.filterPolls("", true, 0));
 		
+		// Transformer
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer transformer = tf.newTransformer(new StreamSource(
-				WebPath + "/WEB-INF/polls.xsl"));
+				WebPath + "/WEB-INF/PollsMainTransform.xsl"));
 
 		// Source
 		JAXBContext jc = JAXBContext.newInstance(PollsController.class);
@@ -55,5 +56,24 @@ public class ApplicationController {
 
 		return writer.toString();
 	}
+	
+	public static String getPollHTML(int id) throws Exception {		
+		// Transformer
+		TransformerFactory tf = TransformerFactory.newInstance();
+		Transformer transformer = tf.newTransformer(new StreamSource(
+				WebPath + "/WEB-INF/viewPoll.xsl"));
 
+		// Source
+		JAXBContext jc = JAXBContext.newInstance(Poll.class);
+		JAXBSource source = new JAXBSource(jc, PC.getPollByID(id));
+
+		// Result
+		StringWriter writer = new StringWriter();
+
+		// Transform
+		transformer.transform(source, new StreamResult(writer));
+
+		return writer.toString();
+	}
+	
 }
