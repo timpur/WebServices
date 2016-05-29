@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Poll Details</title>
 </head>
 <body style="width:80%;margin-left:auto;margin-right:auto;padding:20px;">
 	<%=ApplicationController.getPollDetailsHTML(ID)%>

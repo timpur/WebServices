@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>WebServices</title>
+<title>Home</title>
 </head>
 <body style="width: 80%; margin-left: auto; margin-right: auto">
 	<h1 align="center">Open Polls</h1>
