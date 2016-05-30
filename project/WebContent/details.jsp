@@ -13,10 +13,7 @@
 
 		if (close != null)
 			if (close.equals("true")) {
-				if (sc.verifyPoll(ID)) {
-					ApplicationController.PC.getPollByID(ID).setStatus(
-							false);
-				}
+				ApplicationController.PC.closePoll(ID, sc.currentUser);
 				response.sendRedirect("details.jsp?id=" + ID);
 			}
 	}
@@ -30,18 +27,15 @@
 <body
 	style="width: 80%; margin-left: auto; margin-right: auto; padding: 20px;">
 	<div style="float: right;">
-		<span style="margin-right: 50px;">
-			<a href="index.jsp">Home</a>
-		</span>
-		<span>
-			<%
-				if (sc.loggedin()) {
-					out.println("User Name: " + sc.currentUser.getUsername());
-					out.println("<input type='button' value='Logout' onclick='location.href=\"logout.jsp\";'/>");
-				} else {
-					out.println("<input type='button' value='Login' onclick='location.href=\"login.jsp\";'/>");
-				}
-			%>
+		<span style="margin-right: 50px;"> <a href="index.jsp">Home</a>
+		</span> <span> <%
+ 	if (sc.loggedin()) {
+ 		out.println("User Name: " + sc.currentUser.getUsername());
+ 		out.println("<input type='button' value='Logout' onclick='location.href=\"logout.jsp\";'/>");
+ 	} else {
+ 		out.println("<input type='button' value='Login' onclick='location.href=\"login.jsp\";'/>");
+ 	}
+ %>
 		</span>
 	</div>
 	<%

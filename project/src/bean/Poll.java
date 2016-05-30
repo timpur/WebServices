@@ -4,6 +4,8 @@ import java.util.*;
 import javax.xml.bind.annotation.adapters.*;
 import javax.xml.bind.annotation.*;
 
+//The poll class contains data and functions
+//The functions are used to get, set, and change the data
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "poll")
 public class Poll {
@@ -164,6 +166,8 @@ public class Poll {
 
 }
 
+
+// used to conver that status boolean to a string like opean and closed for display
 class StatusAdapter extends XmlAdapter<String, Boolean> {
 	@Override
 	public String marshal(Boolean v) throws Exception {

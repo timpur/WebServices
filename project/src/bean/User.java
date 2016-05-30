@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.*;
 
+//User object for containing information on a user
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user")
 public class User {

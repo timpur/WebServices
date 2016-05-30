@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.xml.bind.annotation.*;
 
+//This class contains information relevent to a response(vote) on a poll
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "response")
 public class Response {

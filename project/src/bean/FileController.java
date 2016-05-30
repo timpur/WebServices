@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+// A gerneric type class that allows you to save and load any object type from and to file
 public class FileController<T> {
 
 	String filePath;

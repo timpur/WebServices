@@ -9,6 +9,7 @@ import javax.xml.transform.stream.*;
 
 import bean.*;
 
+// This class contains in instance of the classes so they can be accessed through out the application
 public class ApplicationController {
 
 	public static String WebPath = "WebContent/";
@@ -21,6 +22,7 @@ public class ApplicationController {
 	public static FileController<UsersController> UFC;
 	public static UsersController UC;
 
+	//Load the Controllers
 	public static void load() {
 		PFC = new FileController<PollsController>(PFilePath,
 				PollsController.class);
@@ -31,11 +33,14 @@ public class ApplicationController {
 		UC = UFC.load();
 
 	}
-
+	
+	//Save the controllers
 	public static void save() {
 		PFC.save(PC);
 		UFC.save(UC);
 	}
+	
+	//Functions for converting an object to html
 
 	public static String getPollsHTML() {
 		PollsController pc = new PollsController(PC.filterPolls("", true, 0));
@@ -73,6 +78,8 @@ public class ApplicationController {
 			return "POLL NOT FOUN";
 	}
 
+	
+	//function for converting an object to html via xml using xslt
 	public static <T> String xmlToHTML(String xslFile, T obj, Class<T> type) {
 		try {
 			TransformerFactory tf = TransformerFactory.newInstance();

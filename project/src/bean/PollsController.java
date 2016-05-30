@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.*;
 
 import server.ApplicationController;
 
+//The poll controller is a class that contains a list of Polls
+//This class contains complex functions to add and ged polls by diffrent data points
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "polls")
 public class PollsController implements Serializable {
@@ -67,9 +69,10 @@ public class PollsController implements Serializable {
 		}
 		return largestId + 1;
 	}
-
-	public void createPoll(String username, String title, String location,
-			String description, Calendar options[]) {
+	
+	// To create a poll
+	public int createPoll(String username, String title, String location,
+			String description, Calendar[] options) {
 		Poll poll = new Poll();
 		poll.setAuthor(username);
 		poll.setTitle(title);
@@ -77,12 +80,15 @@ public class PollsController implements Serializable {
 		poll.setLocation(location);
 		poll.setOptions(options);
 		// dynamic calculate next ID
-		poll.setId(nextPollId());
+		int id = nextPollId();
+		poll.setId(id);
 		// add new poll to current polls
 		addPoll(poll);
 
 		// save XML
 		ApplicationController.save();
+		
+		return id;
 
 	}
 
@@ -98,7 +104,8 @@ public class PollsController implements Serializable {
 			return false;
 		}
 	}
-
+	
+	//used to close a poll
 	public boolean closePoll(int pollID, User user) {
 		Poll poll = getPollByID(pollID);
 
@@ -109,11 +116,10 @@ public class PollsController implements Serializable {
 			return false;
 
 		poll.setStatus(false);
-		// save to XML
-		updatePoll(poll);
 		return true;
 	}
-
+	
+	//Used to vote on a poll
 	public boolean vote(int pollID, String visitorName, List<Option> options) {
 
 		Poll poll = getPollByID(pollID);
@@ -129,9 +135,8 @@ public class PollsController implements Serializable {
 		return true;
 	}
 
-	/**
-	 * After user login, fetch all polls created by them
-	 */
+	
+	//Used to filter the polls to a username
 	public List<Poll> getPollsForUser(String username) {
 		List<Poll> resultList = new ArrayList<Poll>();
 		for (Poll poll : this.getPolls()) {
@@ -141,7 +146,8 @@ public class PollsController implements Serializable {
 		}
 		return resultList;
 	}
-
+	
+	//Checks that a user created the poll
 	public boolean validatePoll(int ID, String Username) {
 		Poll poll = getPollByID(ID);
 		if (poll != null)
@@ -149,7 +155,8 @@ public class PollsController implements Serializable {
 				return true;
 		return false;
 	}
-
+	
+	//Filters a poll based of author, status, and min responses
 	public List<Poll> filterPolls(String author, boolean status, int minResponse) {
 		List<Poll> result = new ArrayList<Poll>();
 

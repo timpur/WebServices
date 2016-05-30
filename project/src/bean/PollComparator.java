@@ -2,6 +2,8 @@ package bean;
 
 import java.util.Comparator;
 
+//used to compare one poll controller to another to order the list based off 3 orderbys
+//by author, title and creation date
 public class PollComparator implements Comparator<Poll> {
 	String orderBy = "";
 

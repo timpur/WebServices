@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.*;
 
 import server.ApplicationController;
 
+// This class contains a list of users and is used to authenticate
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
 public class UsersController implements Serializable {
@@ -34,7 +35,8 @@ public class UsersController implements Serializable {
 	public void clearUsers(){
 		users.clear();
 	}
-
+	
+	//Find user by its username
 	private User findUser(String username) {
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
@@ -43,7 +45,8 @@ public class UsersController implements Serializable {
 		}
 		return null;
 	}
-
+	
+	//To create a user
 	public boolean createUser(String userName, String password) {
 
 		if (findUser(userName) != null)
@@ -57,7 +60,8 @@ public class UsersController implements Serializable {
 		ApplicationController.save();
 		return true;
 	}
-
+	
+	// To authenticate a user and return the user object
 	public User authenticate(String username, String password) {
 		// loop users
 		for (User user : users) {

@@ -11,17 +11,19 @@ import javax.ws.rs.core.*;
 @Path("/service")
 public class RestService {
 
+	//Get all Polls Open and Closed
 	@Path("/polls/all")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Poll> getPollS() {
+	public List<Poll> getAllPolls() {
 		return ApplicationController.PC.getPolls();
 	}
 
+	//Get Polls using a filter. Default only show open polls
 	@Path("/polls")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Poll> getPollS(@QueryParam("author") String author,
+	public List<Poll> getPolls(@QueryParam("author") String author,
 			@QueryParam("status") String status,
 			@QueryParam("min") int minResponses) {
 
@@ -40,7 +42,8 @@ public class RestService {
 				minResponses);
 		return result;
 	}
-
+	
+	//Filter polls and then order the list of polls
 	@Path("/polls/by/{order}")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
@@ -48,13 +51,14 @@ public class RestService {
 			@QueryParam("author") String author,
 			@QueryParam("status") String status,
 			@QueryParam("min") int minResponses) {
-		List<Poll> result = getPollS(author, status, minResponses);
+		List<Poll> result = getPolls(author, status, minResponses);
 		
 		Collections.sort(result, new PollComparator(orderBy));
 
 		return result;
 	}
-
+	
+	//Get a poll by its ID
 	@Path("/poll/{ID}")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)

@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/server/soap/client/Option.java=UTF-8
+encoding//src/server/soap/client/Poll.java=UTF-8
+encoding//src/server/soap/client/Response.java=UTF-8
+encoding//src/server/soap/client/SOAPService.java=UTF-8
+encoding//src/server/soap/client/SOAPServicePortBindingStub.java=UTF-8
+encoding//src/server/soap/client/SOAPServiceService.java=UTF-8
+encoding//src/server/soap/client/SOAPServiceServiceLocator.java=UTF-8

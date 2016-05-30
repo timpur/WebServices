@@ -4,6 +4,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+// Used to load paths of the current web server since locations change during deployment
+// Also used to load and save the xml data
 public class ApplicationListener implements ServletContextListener {
 
 	ServletContext server;

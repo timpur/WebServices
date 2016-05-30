@@ -7,6 +7,8 @@ import java.util.Calendar;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+//This class contains infor for each option
+//An option has an id and a date
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Option {
@@ -42,7 +44,8 @@ public class Option {
 	public void setValue(Calendar value) {
 		this.value = value;
 	}
-
+	
+	//Functions used to convert text to date format
 	public static Calendar paseDateTime(String s) {
 		try {
 			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm aa");

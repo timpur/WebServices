@@ -3,6 +3,7 @@ package server;
 import bean.*;
 import java.util.*;
 
+// Keeps track of a session and relevent information and relivent functions
 public class SessionController {
 
 	public User currentUser;
@@ -10,7 +11,8 @@ public class SessionController {
 	public SessionController() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	// Authenticate the user and sore the cureent logged in user
 	public boolean login(String userName, String password) {
 		currentUser = ApplicationController.UC.authenticate(userName, password);
 
@@ -39,7 +41,8 @@ public class SessionController {
 		}
 		return okay;
 	}
-
+	
+	//Verify if a poll's creator is the current user
 	public boolean verifyPoll(int ID) {
 		if (loggedin())
 			if (ApplicationController.PC.validatePoll(ID,
@@ -48,7 +51,8 @@ public class SessionController {
 		
 		return false;
 	}
-
+	
+	//Create a poll uing the current user info
 	public boolean createPoll(String title, String location,
 			String description, String dates[]) {
 		// Verifiy poll data if not correct return false
