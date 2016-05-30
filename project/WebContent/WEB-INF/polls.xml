@@ -2,11 +2,11 @@
 <polls>
     <poll>
         <id>1</id>
-        <title>first poll</title>
-        <author>bob</author>
-        <creationDate>30 May 2016 04:55 PM</creationDate>
+        <title>First Poll</title>
+        <author>david</author>
+        <creationDate>30 May 2016 11:28 PM</creationDate>
         <location>sydney</location>
-        <description>description</description>
+        <description>This is a test</description>
         <status>Open</status>
         <options>
             <option id="0">
@@ -44,11 +44,11 @@
     </poll>
     <poll>
         <id>2</id>
-        <title>first poll</title>
+        <title>Web Services Demo</title>
         <author>tim</author>
-        <creationDate>30 May 2016 04:55 PM</creationDate>
-        <location>sydney</location>
-        <description>description</description>
+        <creationDate>30 May 2016 11:28 PM</creationDate>
+        <location>UTS</location>
+        <description>UTS Web Services Demo Time.</description>
         <status>Open</status>
         <options>
             <option id="0">
@@ -69,50 +69,16 @@
                     <option id="2"/>
                 </options>
             </response>
-            <response>
-                <name>visitor2</name>
-                <options>
-                    <option id="3"/>
-                </options>
-            </response>
-            <response>
-                <name>visitor3</name>
-                <options>
-                    <option id="1"/>
-                    <option id="3"/>
-                </options>
-            </response>
         </responses>
     </poll>
     <poll>
         <id>3</id>
-        <title>first poll</title>
+        <title>Networking Assignment</title>
         <author>tim</author>
-        <creationDate>30 May 2016 04:55 PM</creationDate>
-        <location>sydney</location>
-        <description>description</description>
+        <creationDate>30 May 2016 11:28 PM</creationDate>
+        <location>UTS</location>
+        <description>For The LOLS</description>
         <status>Closed</status>
-        <options>
-            <option id="0">
-                <value>01 Jun 2016 02:00 PM</value>
-            </option>
-            <option id="1">
-                <value>01 Jun 2016 04:00 PM</value>
-            </option>
-            <option id="2">
-                <value>01 Jun 2016 06:00 PM</value>
-            </option>
-        </options>
-        <responses/>
-    </poll>
-    <poll>
-        <id>4</id>
-        <title>a title</title>
-        <author>author</author>
-        <creationDate>30 May 2016 04:55 PM</creationDate>
-        <location>location</location>
-        <description>description</description>
-        <status>Open</status>
         <options>
             <option id="0">
                 <value>01 Jun 2016 02:00 PM</value>
