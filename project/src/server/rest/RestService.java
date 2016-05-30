@@ -49,8 +49,8 @@ public class RestService {
 			@QueryParam("status") String status,
 			@QueryParam("min") int minResponses) {
 		List<Poll> result = getPollS(author, status, minResponses);
-
-		result.sort(new PollComparator(orderBy));
+		
+		Collections.sort(result, new PollComparator(orderBy));
 
 		return result;
 	}
