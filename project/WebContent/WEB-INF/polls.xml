@@ -105,4 +105,46 @@
         </options>
         <responses/>
     </poll>
+    <poll>
+        <id>4</id>
+        <title>a title</title>
+        <author>author</author>
+        <creationDate>29 May 2016 06:53 PM</creationDate>
+        <location>location</location>
+        <description>description</description>
+        <status>true</status>
+        <options>
+            <option id="0">
+                <value>01 Jun 2016 02:00 PM</value>
+            </option>
+            <option id="1">
+                <value>01 Jun 2016 04:00 PM</value>
+            </option>
+            <option id="2">
+                <value>01 Jun 2016 06:00 PM</value>
+            </option>
+        </options>
+        <responses/>
+    </poll>
+    <poll>
+        <id>5</id>
+        <title>a title</title>
+        <author>author</author>
+        <creationDate>29 May 2016 06:53 PM</creationDate>
+        <location>location</location>
+        <description>description</description>
+        <status>true</status>
+        <options>
+            <option id="0">
+                <value>01 Jun 2016 02:00 PM</value>
+            </option>
+            <option id="1">
+                <value>01 Jun 2016 04:00 PM</value>
+            </option>
+            <option id="2">
+                <value>01 Jun 2016 06:00 PM</value>
+            </option>
+        </options>
+        <responses/>
+    </poll>
 </polls>

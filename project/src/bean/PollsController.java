@@ -146,15 +146,10 @@ public class PollsController implements Serializable {
 		List<Poll> result = new ArrayList<Poll>();
 
 		for (Poll poll : polls) {
-			boolean match = false;
-
 			if (author.isEmpty() || poll.getAuthor().equalsIgnoreCase(author))
 				if (poll.getStatus() == status)
 					if (poll.getRespsonses().size() >= minResponse)
-						match = true;
-
-			if (match)
-				result.add(poll);
+						result.add(poll);
 		}
 
 		return result;

@@ -2,10 +2,10 @@ package bean;
 
 import java.util.Comparator;
 
-public class PollCompare implements Comparator<Poll> {
-	String orderBy = "author";
+public class PollComparator implements Comparator<Poll> {
+	String orderBy = "";
 
-	public PollCompare(String orderby) {
+	public PollComparator(String orderby) {
 		this.orderBy = orderby;
 	}
 

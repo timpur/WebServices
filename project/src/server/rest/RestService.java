@@ -21,22 +21,22 @@ public class RestService {
 	@Path("/polls")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Poll> getPollS(@QueryParam("author") String creator,
+	public List<Poll> getPollS(@QueryParam("author") String author,
 			@QueryParam("status") String status,
 			@QueryParam("min") int minResponses) {
 
 		if (status == null)
-			status = "opean";
-		if (creator == null)
-			creator = "";
+			status = "open";
+		if (author == null)
+			author = "";
 
 		boolean stat = true;
-		if (status.equals("opean"))
+		if (status.equals("open"))
 			stat = true;
 		else if (status.equals("closed"))
 			stat = false;
 
-		List<Poll> result = ApplicationController.PC.filterPolls(creator, stat,
+		List<Poll> result = ApplicationController.PC.filterPolls(author, stat,
 				minResponses);
 		return result;
 	}
@@ -45,12 +45,12 @@ public class RestService {
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	public List<Poll> getPollsBy(@PathParam("order") String orderBy,
-			@QueryParam("author") String creator,
+			@QueryParam("author") String author,
 			@QueryParam("status") String status,
 			@QueryParam("min") int minResponses) {
-		List<Poll> result = getPollS(creator, status, minResponses);
+		List<Poll> result = getPollS(author, status, minResponses);
 
-		result.sort(new PollCompare(orderBy));
+		result.sort(new PollComparator(orderBy));
 
 		return result;
 	}
