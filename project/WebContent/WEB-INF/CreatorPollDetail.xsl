@@ -34,12 +34,18 @@
 					<xsl:value-of select="description" />
 				</b>
 			</p>
+			<p style="text-align:center;">
+				Status:
+				<b>
+					<xsl:value-of select="status" />
+				</b>
+			</p>
 			<br />
 			<div style="text-align:center;">
 				<xsl:element name="input">
 					<xsl:attribute name="type">button</xsl:attribute>
 					<xsl:attribute name="value">Close Poll</xsl:attribute>
-					<xsl:attribute name="onClick">location.href=location.href + '&close';</xsl:attribute>
+					<xsl:attribute name="onClick">location.href=location.href + '&amp;close=true';</xsl:attribute>
 				</xsl:element>
 			</div>
 			<br />

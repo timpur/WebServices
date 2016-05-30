@@ -34,6 +34,12 @@
 					<xsl:value-of select="description" />
 				</b>
 			</p>
+			<p style="text-align:center;">
+				Status:
+				<b>
+					<xsl:value-of select="status" />
+				</b>
+			</p>
 			<br />
 			<h2 style="text-align:center;">Select Metting Times</h2>
 

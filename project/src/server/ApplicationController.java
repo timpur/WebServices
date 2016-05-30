@@ -42,6 +42,7 @@ public class ApplicationController {
 		return xmlToHTML("/WEB-INF/PollsMainTransform.xsl", pc,
 				PollsController.class);
 	}
+
 	public static String getPollsHTML(String username) {
 		PollsController pc = new PollsController(PC.getPollsForUser(username));
 		return xmlToHTML("/WEB-INF/PollsMainTransform.xsl", pc,
@@ -49,18 +50,27 @@ public class ApplicationController {
 	}
 
 	public static String getPollDetailsHTML(int id) {
-		return xmlToHTML("/WEB-INF/PollDetail.xsl", PC.getPollByID(id),
-				Poll.class);
+		Poll poll = PC.getPollByID(id);
+		if (poll != null)
+			return xmlToHTML("/WEB-INF/PollDetail.xsl", poll, Poll.class);
+		else
+			return "POLL NOT FOUN";
 	}
-	
+
 	public static String getUserPollDetailsHTML(int id) {
-		return xmlToHTML("/WEB-INF/CreatorPollDetail.xsl", PC.getPollByID(id),
-				Poll.class);
+		Poll poll = PC.getPollByID(id);
+		if (poll != null)
+			return xmlToHTML("/WEB-INF/CreatorPollDetail.xsl", poll, Poll.class);
+		else
+			return "POLL NOT FOUN";
 	}
 
 	public static String getPollSummeryHTML(int id) {
-		return xmlToHTML("/WEB-INF/PollSummary.xsl", PC.getPollByID(id),
-				Poll.class);
+		Poll poll = PC.getPollByID(id);
+		if (poll != null)
+			return xmlToHTML("/WEB-INF/PollSummary.xsl", poll, Poll.class);
+		else
+			return "POLL NOT FOUN";
 	}
 
 	public static <T> String xmlToHTML(String xslFile, T obj, Class<T> type) {

@@ -5,7 +5,21 @@
 </jsp:useBean>
 
 <%
-	int ID = Integer.parseInt(request.getParameter("id"));
+	String s = request.getParameter("id");
+	int ID = -1;
+	if (s != null) {
+		ID = Integer.parseInt(s);
+		String close = request.getParameter("close");
+
+		if (close != null)
+			if (close.equals("true")) {
+				if (sc.verifyPoll(ID)) {
+					ApplicationController.PC.getPollByID(ID).setStatus(
+							false);
+				}
+				response.sendRedirect("details.jsp?id=" + ID);
+			}
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

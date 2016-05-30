@@ -18,7 +18,7 @@ public class PollsController implements Serializable {
 	public PollsController() {
 		this.polls = new ArrayList<Poll>();
 	}
-	
+
 	public PollsController(List<Poll> list) {
 		this.polls = list;
 	}
@@ -141,12 +141,13 @@ public class PollsController implements Serializable {
 		}
 		return resultList;
 	}
-	
-	public boolean validatePoll(int ID, String Username){
-		if(getPollByID(ID).getAuthor().equals(Username))
-			return true;
-		else 
-			return false;
+
+	public boolean validatePoll(int ID, String Username) {
+		Poll poll = getPollByID(ID);
+		if (poll != null)
+			if (poll.getAuthor().equals(Username))
+				return true;
+		return false;
 	}
 
 	public List<Poll> filterPolls(String author, boolean status, int minResponse) {

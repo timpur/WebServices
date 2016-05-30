@@ -40,6 +40,15 @@ public class SessionController {
 		return okay;
 	}
 
+	public boolean verifyPoll(int ID) {
+		if (loggedin())
+			if (ApplicationController.PC.validatePoll(ID,
+					currentUser.getUsername()))
+				return true;
+		
+		return false;
+	}
+
 	public boolean createPoll(String title, String location,
 			String description, String dates[]) {
 		// Verifiy poll data if not correct return false
@@ -68,12 +77,10 @@ public class SessionController {
 	}
 
 	public String GetUserPollDetailsHTML(int ID) {
-		if (loggedin()) {
-			if (ApplicationController.PC.validatePoll(ID,
-					currentUser.getUsername()))
-				return ApplicationController.getUserPollDetailsHTML(ID);
-		}
-		return "";
+		if (verifyPoll(ID))
+			return ApplicationController.getUserPollDetailsHTML(ID);
+
+		return "POLL DOES NOT EXIST OR YOU DONT HAVE PERMISSIONS TO EDIT THIS POLL";
 	}
 
 }
