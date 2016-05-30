@@ -45,13 +45,11 @@ public class Option {
 
 	public static Calendar paseDateTime(String s) {
 		try {
-			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm aa");
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(ft.parse(s));
 			return calendar;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -63,8 +61,6 @@ public class Option {
 			calendar.setTime(ft.parse(s));
 			return calendar;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -76,8 +72,6 @@ public class Option {
 			calendar.setTime(ft.parse(s));
 			return calendar;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			return null;
 		}
 	}

@@ -141,6 +141,13 @@ public class PollsController implements Serializable {
 		}
 		return resultList;
 	}
+	
+	public boolean validatePoll(int ID, String Username){
+		if(getPollByID(ID).getAuthor().equals(Username))
+			return true;
+		else 
+			return false;
+	}
 
 	public List<Poll> filterPolls(String author, boolean status, int minResponse) {
 		List<Poll> result = new ArrayList<Poll>();

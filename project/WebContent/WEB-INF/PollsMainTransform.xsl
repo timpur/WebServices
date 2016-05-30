@@ -27,6 +27,12 @@
 					<xsl:value-of select="author" />
 				</b>
 			</p>
+			<p align="center">
+				Status
+				<b>
+					<xsl:value-of select="status" />
+				</b>
+			</p>
 			<p>
 				<span>
 					Options:

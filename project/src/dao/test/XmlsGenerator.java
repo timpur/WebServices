@@ -39,9 +39,10 @@ public class XmlsGenerator {
 		poll.setDescription("description");
 		poll.setLocation("sydney");
 		poll.setTitle("first poll");
-		poll.setOptions(new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
-				Option.paseDateTime("2016-06-01 16:00"),
-				Option.paseDateTime("2016-06-01 18:00") });
+		poll.setOptions(new Calendar[] {
+				Option.paseDateTime("2016-06-01 2:00 PM"),
+				Option.paseDateTime("2016-06-01 04:00 PM"),
+				Option.paseDateTime("2016-06-01 06:00 PM") });
 
 		Response r1 = new Response();
 		r1.setName("visitor1");
@@ -62,14 +63,15 @@ public class XmlsGenerator {
 		// Poll 2
 		Poll poll2 = new Poll();
 		poll2.setId(2);
-		poll2.setStatus(false);
-		poll2.setAuthor("tom");
+		poll2.setStatus(true);
+		poll2.setAuthor("tim");
 		poll2.setDescription("description");
 		poll2.setLocation("sydney");
 		poll2.setTitle("first poll");
-		poll2.setOptions(new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
-				Option.paseDateTime("2016-06-01 16:00"),
-				Option.paseDateTime("2016-06-01 18:00") });
+		poll2.setOptions(new Calendar[] {
+				Option.paseDateTime("2016-06-01 2:00 PM"),
+				Option.paseDateTime("2016-06-01 04:00 PM"),
+				Option.paseDateTime("2016-06-01 06:00 PM") });
 
 		Response r4 = new Response();
 		r4.setName("visitor1");
@@ -87,9 +89,23 @@ public class XmlsGenerator {
 		poll2.addResponse(r5);
 		poll2.addResponse(r6);
 
+		// poll 3
+		Poll poll3 = new Poll();
+		poll3.setId(3);
+		poll3.setStatus(false);
+		poll3.setAuthor("tim");
+		poll3.setDescription("description");
+		poll3.setLocation("sydney");
+		poll3.setTitle("first poll");
+		poll3.setOptions(new Calendar[] {
+				Option.paseDateTime("2016-06-01 2:00 PM"),
+				Option.paseDateTime("2016-06-01 04:00 PM"),
+				Option.paseDateTime("2016-06-01 06:00 PM") });
+
 		// Add Polls
 		ApplicationController.PC.addPoll(poll);
 		ApplicationController.PC.addPoll(poll2);
+		ApplicationController.PC.addPoll(poll3);
 
 		// test create poll function works
 		ApplicationController.PC.createPoll(
@@ -97,9 +113,9 @@ public class XmlsGenerator {
 				"a title",
 				"location",
 				"description",
-				new Calendar[] { Option.paseDateTime("2016-06-01 14:00"),
-						Option.paseDateTime("2016-06-01 16:00"),
-						Option.paseDateTime("2016-06-01 18:00") });
+				new Calendar[] { Option.paseDateTime("2016-06-01 2:00 PM"),
+						Option.paseDateTime("2016-06-01 04:00 PM"),
+						Option.paseDateTime("2016-06-01 06:00 PM") });
 
 	}
 

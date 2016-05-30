@@ -1,6 +1,7 @@
 package server;
 
 import java.io.*;
+
 import javax.xml.bind.*;
 import javax.xml.bind.util.*;
 import javax.xml.transform.*;
@@ -9,7 +10,7 @@ import javax.xml.transform.stream.*;
 import bean.*;
 
 public class ApplicationController {
-	
+
 	public static String WebPath = "WebContent/";
 
 	public static String PFilePath = "WebContent/WEB-INF/polls.xml";
@@ -36,63 +37,54 @@ public class ApplicationController {
 		UFC.save(UC);
 	}
 
-	public static String getPollsHTML() throws Exception {
+	public static String getPollsHTML() {
 		PollsController pc = new PollsController(PC.filterPolls("", true, 0));
-		
-		// Transformer
-		TransformerFactory tf = TransformerFactory.newInstance();
-		Transformer transformer = tf.newTransformer(new StreamSource(
-				WebPath + "/WEB-INF/PollsMainTransform.xsl"));
+		return xmlToHTML("/WEB-INF/PollsMainTransform.xsl", pc,
+				PollsController.class);
+	}
+	public static String getPollsHTML(String username) {
+		PollsController pc = new PollsController(PC.getPollsForUser(username));
+		return xmlToHTML("/WEB-INF/PollsMainTransform.xsl", pc,
+				PollsController.class);
+	}
 
-		// Source
-		JAXBContext jc = JAXBContext.newInstance(PollsController.class);
-		JAXBSource source = new JAXBSource(jc, pc);
-
-		// Result
-		StringWriter writer = new StringWriter();
-
-		// Transform
-		transformer.transform(source, new StreamResult(writer));
-
-		return writer.toString();
+	public static String getPollDetailsHTML(int id) {
+		return xmlToHTML("/WEB-INF/PollDetail.xsl", PC.getPollByID(id),
+				Poll.class);
 	}
 	
-	public static String getPollDetailsHTML(int id) throws Exception {		
-		// Transformer
-		TransformerFactory tf = TransformerFactory.newInstance();
-		Transformer transformer = tf.newTransformer(new StreamSource(
-				WebPath + "/WEB-INF/PollDetail.xsl"));
-
-		// Source
-		JAXBContext jc = JAXBContext.newInstance(Poll.class);
-		JAXBSource source = new JAXBSource(jc, PC.getPollByID(id));
-
-		// Result
-		StringWriter writer = new StringWriter();
-
-		// Transform
-		transformer.transform(source, new StreamResult(writer));
-
-		return writer.toString();
+	public static String getUserPollDetailsHTML(int id) {
+		return xmlToHTML("/WEB-INF/CreatorPollDetail.xsl", PC.getPollByID(id),
+				Poll.class);
 	}
-	
-	public static String getPollSummeryHTML(int id) throws Exception {		
-		// Transformer
-		TransformerFactory tf = TransformerFactory.newInstance();
-		Transformer transformer = tf.newTransformer(new StreamSource(
-				WebPath + "/WEB-INF/PollSummary.xsl"));
 
-		// Source
-		JAXBContext jc = JAXBContext.newInstance(Poll.class);
-		JAXBSource source = new JAXBSource(jc, PC.getPollByID(id));
-
-		// Result
-		StringWriter writer = new StringWriter();
-
-		// Transform
-		transformer.transform(source, new StreamResult(writer));
-
-		return writer.toString();
+	public static String getPollSummeryHTML(int id) {
+		return xmlToHTML("/WEB-INF/PollSummary.xsl", PC.getPollByID(id),
+				Poll.class);
 	}
-	
+
+	public static <T> String xmlToHTML(String xslFile, T obj, Class<T> type) {
+		try {
+			TransformerFactory tf = TransformerFactory.newInstance();
+			Transformer transformer = tf.newTransformer(new StreamSource(
+					WebPath + xslFile));
+
+			// Source
+			JAXBContext jc = JAXBContext.newInstance(type);
+			JAXBSource source;
+
+			source = new JAXBSource(jc, obj);
+
+			// Result
+			StringWriter writer = new StringWriter();
+
+			// Transform
+			transformer.transform(source, new StreamResult(writer));
+
+			return writer.toString();
+		} catch (JAXBException | TransformerException e) {
+			return "";
+		}
+	}
+
 }

@@ -35,39 +35,22 @@
 				</b>
 			</p>
 			<br />
-			<h2 style="text-align:center;">Select Metting Times</h2>
-
-			<form style="text-align:center;" action="summary.jsp" method="post">
+			<div style="text-align:center;">
 				<xsl:element name="input">
-					<xsl:attribute name="type">hidden</xsl:attribute>
-					<xsl:attribute name="name">id</xsl:attribute>
-					<xsl:attribute name="value">
-							<xsl:value-of select="id" />
-						</xsl:attribute>
+					<xsl:attribute name="type">button</xsl:attribute>
+					<xsl:attribute name="value">Close Poll</xsl:attribute>
+					<xsl:attribute name="onClick">location.href=location.href + '&close';</xsl:attribute>
 				</xsl:element>
+			</div>
+			<br />
+			<h2 style="text-align:center;">Metting Times</h2>
+			<p style="text-align:center;">
 				<xsl:for-each select="options/option">
-					<xsl:element name="input">
-						<xsl:attribute name="type">checkbox</xsl:attribute>
-						<xsl:attribute name="name">option</xsl:attribute>
-						<xsl:attribute name="value">
-							<xsl:value-of select="@id" />
-						</xsl:attribute>
-					</xsl:element>
 					<xsl:value-of select="value" />
 					<br />
 				</xsl:for-each>
-				<br />
-				<div>
-					Name:
-					<input type="text" name="name" />
-				</div>
-				<br />
-				<input type="submit" value="Submit" />
-			</form>
-
-
+			</p>
 		</div>
-
 	</xsl:template>
 
 </xsl:stylesheet>

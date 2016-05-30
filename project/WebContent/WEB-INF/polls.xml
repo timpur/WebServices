@@ -4,10 +4,10 @@
         <id>1</id>
         <title>first poll</title>
         <author>bob</author>
-        <creationDate>29 May 2016 06:53 PM</creationDate>
+        <creationDate>30 May 2016 04:55 PM</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <status>true</status>
+        <status>Open</status>
         <options>
             <option id="0">
                 <value>01 Jun 2016 02:00 PM</value>
@@ -45,11 +45,11 @@
     <poll>
         <id>2</id>
         <title>first poll</title>
-        <author>tom</author>
-        <creationDate>29 May 2016 06:53 PM</creationDate>
+        <author>tim</author>
+        <creationDate>30 May 2016 04:55 PM</creationDate>
         <location>sydney</location>
         <description>description</description>
-        <status>false</status>
+        <status>Open</status>
         <options>
             <option id="0">
                 <value>01 Jun 2016 02:00 PM</value>
@@ -86,12 +86,12 @@
     </poll>
     <poll>
         <id>3</id>
-        <title>a title</title>
-        <author>author</author>
-        <creationDate>29 May 2016 06:53 PM</creationDate>
-        <location>location</location>
+        <title>first poll</title>
+        <author>tim</author>
+        <creationDate>30 May 2016 04:55 PM</creationDate>
+        <location>sydney</location>
         <description>description</description>
-        <status>true</status>
+        <status>Closed</status>
         <options>
             <option id="0">
                 <value>01 Jun 2016 02:00 PM</value>
@@ -109,31 +109,10 @@
         <id>4</id>
         <title>a title</title>
         <author>author</author>
-        <creationDate>29 May 2016 06:53 PM</creationDate>
+        <creationDate>30 May 2016 04:55 PM</creationDate>
         <location>location</location>
         <description>description</description>
-        <status>true</status>
-        <options>
-            <option id="0">
-                <value>01 Jun 2016 02:00 PM</value>
-            </option>
-            <option id="1">
-                <value>01 Jun 2016 04:00 PM</value>
-            </option>
-            <option id="2">
-                <value>01 Jun 2016 06:00 PM</value>
-            </option>
-        </options>
-        <responses/>
-    </poll>
-    <poll>
-        <id>5</id>
-        <title>a title</title>
-        <author>author</author>
-        <creationDate>29 May 2016 06:53 PM</creationDate>
-        <location>location</location>
-        <description>description</description>
-        <status>true</status>
+        <status>Open</status>
         <options>
             <option id="0">
                 <value>01 Jun 2016 02:00 PM</value>

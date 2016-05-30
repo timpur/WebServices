@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 public class DateAdapter extends XmlAdapter<String, Calendar> {
 
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy hh:mm a");
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy hh:mm aa");
 
     @Override
     public String marshal(Calendar v) throws Exception {

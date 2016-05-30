@@ -27,7 +27,8 @@ public class Poll {
 	private String description;
 
 	@XmlElement
-	private boolean status;
+	@XmlJavaTypeAdapter(StatusAdapter.class)
+	private Boolean status;
 
 	@XmlElementWrapper(name = "options")
 	@XmlElement(name = "option")
@@ -38,7 +39,7 @@ public class Poll {
 	private List<Response> respsonses;
 
 	public Poll() {
-		this.creationDate =  new GregorianCalendar();
+		this.creationDate = new GregorianCalendar();
 		this.creationDate.set(Calendar.MILLISECOND, 0);
 		this.status = true;
 		this.respsonses = new ArrayList<Response>();
@@ -133,7 +134,8 @@ public class Poll {
 	public void setOptions(Calendar options[]) {
 		int ID = findNextOptionID();
 		for (Calendar o : options) {
-			addOption(ID, o);
+			if (o != null)
+				addOption(ID, o);
 			++ID;
 		}
 	}
@@ -158,6 +160,24 @@ public class Poll {
 				return o;
 		}
 		return null;
+	}
+
+}
+
+class StatusAdapter extends XmlAdapter<String, Boolean> {
+	@Override
+	public String marshal(Boolean v) throws Exception {
+		return v ? "Open" : "Closed";
+	}
+
+	@Override
+	public Boolean unmarshal(String v) throws Exception {
+		if (v.equals("Opean"))
+			return true;
+		else if (v.equals("Closed"))
+			return false;
+		else
+			throw new Exception("Status can not be converted to boolean");
 	}
 
 }
